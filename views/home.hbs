@@ -5,11 +5,11 @@
     <title>Some Website</title>
   </head>
   <body>
-    <h1>{{pageTitle}}</h1>
+    {{> header}}
     <p>Some text here</p>
     <p>{{welcomeMessage}}</p>
-    <footer>
-      <p>Copyright {{currentYear}}</p>
-    </footer>
+    <p>{{screamIt welcomeMessage}}</p>
+    <!-- including partials -->
+    {{> footer}}
   </body>
 </html>
