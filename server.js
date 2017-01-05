@@ -5,6 +5,11 @@ var app = express();
 
 //2 args :- The root of the folder and what to send back
 //The function will have 2 arguments:- request and response
+
+//Express middleware
+//express.static is a built-in middleware
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', (req, res) => {
   // res.send('<h1>Hello express</h1>');
   res.send({
@@ -30,4 +35,6 @@ app.get('/about', (req, res) => {
 
 
 //Port
-app.listen(3000);
+app.listen(3000, () => {
+  console.log('Server is up on port 3000');
+});
