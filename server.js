@@ -1,23 +1,19 @@
 const express = require('express');
+const hbs = require('hbs');
 
 //Making a new express app
 var app = express();
 
-//2 args :- The root of the folder and what to send back
-//The function will have 2 arguments:- request and response
 
-//Express middleware
-//express.static is a built-in middleware
+//Setting up the view engine
+app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
-  // res.send('<h1>Hello express</h1>');
-  res.send({
-    name : 'Andrew',
-    likes: [
-      'Biking',
-      'Coding'
-    ]
+  res.render('home.hbs', {
+    pageTitle: 'Home page',
+    currentYear: new Date().getFullYear(),
+    welcomeMessage: 'oeibfoiaebfo efubo afoafoa eofean aneoin iofns ojnbfa fobaofaiffoafa ifb  ousbrovjsbfsf jh jkhisfnjlipafafpihrvbs'
   });
 });
 
@@ -29,7 +25,10 @@ app.get('/bad', (req, res) => {
 
 //About page
 app.get('/about', (req, res) => {
-  res.send('About page');
+  res.render('about.hbs', {
+    pageTitle: 'About page',
+    currentYear: new Date().getFullYear()
+  });
 });
 
 
